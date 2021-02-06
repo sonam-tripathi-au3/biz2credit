@@ -22,7 +22,7 @@ export default class UserList extends Component {
 
 
     deleteStudent(id){
-        axios.delete('http://localhost:8080/api/v1/users' + id)
+        axios.delete(`http://localhost:8080/api/v1/users/${id}`)
             .then((res) => {
                 console.log(res.data)
                 console.log('Student successfully deleted!')
@@ -40,7 +40,7 @@ export default class UserList extends Component {
                     <p class="card-text">Name: {item.name}</p>
                     <p class="card-text">Email: {item.email}</p>
                     <p class="card-text">Phone: {item.phone_number}</p>
-                    <a><Link className="edit-link" to={"/users/" + item._id}>
+                    <a><Link className="edit-link" to={`/users/ ${item._id} `}>
                         Edit
                     </Link></a>
                     <button onClick={this.deleteStudent(item._id)} size="sm" variant="danger">Delete</button>
